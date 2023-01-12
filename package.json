@@ -1,0 +1,33 @@
+{
+  "name": "respiree-expercise-a",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">14.18.2",
+    "npm": ">6.14.15"
+  },
+  "scripts": {
+    "serve": "node dist/server/main.js",
+    "build:server": "tsc --build tsconfig.json",
+    "watch:source": "npm run build:server -- --watch --verbose",
+    "debug:server": "nodemon --verbose --inspect=0.0.0.0:4002 dist/server/main.js",
+    "watch:debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:source\" \"npm run debug:server\""
+  },
+  "license": "Closed",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "express": "~4.18.2",
+    "express-requests-logger": "^3.0.4"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "~4.17.15",
+    "@types/express-requests-logger": "^3.0.1",
+    "@types/node": "~18.11.18",
+    "nodemon": "~2.0.20",
+    "ts-node": "~10.9.1",
+    "typescript": "~4.9.4"
+  }
+}
