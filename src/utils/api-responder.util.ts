@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { IApiResponse } from '../types';
 
-
 export class ApiResponder {
   private _hasError = false;
   private request: Request;
@@ -20,13 +19,10 @@ export class ApiResponder {
   }
 
   public sendApiRes<T>(response: IApiResponse<T>) {
-    const {
-      error: { code },
-    } = response;
-
-    this.response
-      .status(code || 200)
-      .json(response)
-      .end();
+    const { error: { code } = { code: 0 } } = response;
+    if (code) {
+      this.hasError = true;
+    }
+    this.response.status(code || 200).json(response);
   }
 }

@@ -1,27 +1,47 @@
-# FishyHub
+# Respiree Rest API Assignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Project is written using Typescript, NodeJS, Express.
 
-## Development server
+- Typescript
+- NodeJS
+- ExpressJS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Available Endpoints
 
-## Code scaffolding
+- http://localhost:4001/api/get-patients?fields=age,trestbps&sort=age,asc&filters=(attr=trestbps,lt=145,gt=141)(attr=sex,eq=1)
+- http://localhost:4001/api/get-patients?filters=(attr=trestbps,lt=145,gt=141)(attr=sex,eq=1)
+- http://localhost:4001/api/get-patients?sort=age,desc
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Query parameters
 
-## Build
+### fields
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    - fields=age,trestbps
 
-## Running unit tests
+### sort
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    - sort=age,asc
+    - sort=age,desc
 
-## Running end-to-end tests
+### filters
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    - (attr=trestbps,lt=145,gt=141)(attr=sex,eq=1)
+    - logical operators like lt, gt, gte, lte and eq can be passed for attributes
 
-## Further help
+# How to run locally
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## STEP1
+
+```
+npm install
+```
+
+## STEP2
+
+```
+npm run serve:local
+```
+
+Currently port is configured to use 4001.
+
+- Visit [localhost](<http://localhost:4001/api/get-patients?fields=age,trestbps&sort=age,asc&filters=(attr=trestbps,lt=145,gt=141)(attr=sex,eq=1)>)
